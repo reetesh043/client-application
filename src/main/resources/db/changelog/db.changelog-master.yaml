@@ -1,0 +1,3 @@
+databaseChangeLog:
+  - include:
+      file: db/tables/1.0.0-create-client.yaml

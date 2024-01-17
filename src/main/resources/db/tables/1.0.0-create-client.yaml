@@ -1,0 +1,49 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-client-table
+      author: liquibase
+      preConditions:
+        - onFail: MARK_RAN
+          not:
+            tableExists:
+              tableName: client
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: CLIENT_PK
+                  name: client_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: dob
+                  type: VARCHAR(250)
+              - column:
+                  name: email
+                  type: VARCHAR(250)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: tax_id
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: false
+                  name: address
+                  type: VARCHAR(255)
+              - column:
+                  constraints:
+                    nullable: true
+                  name: kyc_status
+                  type: VARCHAR(255)
+            tableName: client
